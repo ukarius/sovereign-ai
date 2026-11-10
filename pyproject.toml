@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sovereign-ai"
+version = "0.1.0"
+description = "Local-first, self-hosted AI runtime and orchestrator"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["pydantic>=2.6", "fastapi>=0.110", "rich>=13.7"]
+
+[project.optional-dependencies]
+local-models = ["transformers>=4.39", "torch>=2.2"]
+
+[tool.setuptools]
+packages = ["core", "tools", "models"]

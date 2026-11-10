@@ -1,0 +1,66 @@
+# ═══════════════ Java / Maven ═══════════════
+backend/target/
+*.class
+*.jar
+*.war
+*.ear
+*.log
+backend/*log*.txt
+.mvn/
+mvnw
+mvnw.cmd
+
+# ═══════════════ Node / Frontend ═══════════════
+frontend/node_modules/
+frontend/dist/
+frontend/.cache/
+
+# ═══════════════ IDE ═══════════════
+.idea/
+*.iml
+.vscode/
+*.swp
+*.swo
+*~
+
+# ═══════════════ OS ═══════════════
+.DS_Store
+Thumbs.db
+
+# ═══════════════ Environment ═══════════════
+.env
+.env.local
+.env.production
+
+# ═══════════════ Python ═══════════════
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# ═══════════════ Local data and model weights ═══════════════
+*.db
+*.sqlite
+*.sqlite3
+*.log
+checkpoints/
+models/weights/
+*.safetensors
+*.gguf
+
+# ═══════════════ Node / Java build artifacts ═══════════════
+frontend/node_modules/
+frontend/dist/
+backend/target/
+
+# ═══════════════ OS ═══════════════
+.DS_Store
+Thumbs.db
+Desktop.ini

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sovereign — Creator Economy OS</title>
+  <meta name="description" content="Own Your Creative Empire. The all-in-one Creator Economy Operating System. Publish everywhere, analyze everything, monetize intelligently.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Custom Cursor -->
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<!-- Grid Overlay -->
+<div class="grid-overlay"></div>
+
+<!-- Noise Texture -->
+<svg class="noise-overlay" width="100%" height="100%">
+  <filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/></filter>
+  <rect width="100%" height="100%" filter="url(#noise)"/>
+</svg>
+
+<!-- Glow Orbs -->
+<div class="glow-orbs">
+  <div class="glow-orb purple"></div>
+  <div class="glow-orb blue"></div>
+  <div class="glow-orb pink"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-icon">S</div>
+    <div class="nav-logo-text">Sovereign</div>
+  </div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how-it-works">How It Works</a>
+    <a href="#roles">For Brands</a>
+    <a href="#pricing">Pricing</a>
+  </div>
+  <div class="nav-actions">
+    <button class="btn-ghost">Login</button>
+    <button class="btn-primary">Get Started</button>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="hero">
+  <canvas id="particle-canvas"></canvas>
+
+  <div class="hero-badge reveal" data-delay="0">
+    <div class="hero-badge-dot"></div>
+    <span>The Creator Economy Operating System</span>
+  </div>
+
+  <h1 class="reveal" data-delay="0.1">
+    Own Your<br>
+    <span class="shimmer">Creative Empire</span>
+  </h1>
+
+  <p class="hero-sub reveal" data-delay="0.2">
+    Publish everywhere. Analyze everything. Monetize intelligently.
+    The all-in-one platform built for creators who mean business.
+  </p>
+
+  <div class="hero-ctas reveal" data-delay="0.3">
+    <button class="btn-hero-primary">Start Building Free →</button>
+    <button class="btn-hero-outline">View Demo</button>
+  </div>
+
+  <div class="hero-stats reveal" data-delay="0.45">
+    <div class="hero-stat">
+      <div class="hero-stat-value">50K+</div>
+      <div class="hero-stat-label">Creators</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-value">$12M</div>
+      <div class="hero-stat-label">Revenue Generated</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-value">99.9%</div>
+      <div class="hero-stat-label">Uptime</div>
+    </div>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span>FastAPI</span><span class="dot">·</span>
+    <span>React</span><span class="dot">·</span>
+    <span>TF-IDF</span><span class="dot">·</span>
+    <span>KNN</span><span class="dot">·</span>
+    <span>Framer Motion</span><span class="dot">·</span>
+    <span>@dnd-kit</span><span class="dot">·</span>
+    <span>React Flow</span><span class="dot">·</span>
+    <span>WebGL</span><span class="dot">·</span>
+    <span>Matter.js</span><span class="dot">·</span>
+    <span>Scikit-Learn</span><span class="dot">·</span>
+    <span>WebSocket</span><span class="dot">·</span>
+    <span>Stripe</span><span class="dot">·</span>
+    <!-- Duplicate for seamless loop -->
+    <span>FastAPI</span><span class="dot">·</span>
+    <span>React</span><span class="dot">·</span>
+    <span>TF-IDF</span><span class="dot">·</span>
+    <span>KNN</span><span class="dot">·</span>
+    <span>Framer Motion</span><span class="dot">·</span>
+    <span>@dnd-kit</span><span class="dot">·</span>
+    <span>React Flow</span><span class="dot">·</span>
+    <span>WebGL</span><span class="dot">·</span>
+    <span>Matter.js</span><span class="dot">·</span>
+    <span>Scikit-Learn</span><span class="dot">·</span>
+    <span>WebSocket</span><span class="dot">·</span>
+    <span>Stripe</span><span class="dot">·</span>
+  </div>
+</div>
+
+<!-- Features -->
+<section id="features">
+  <div class="section-pad">
+    <div class="reveal">
+      <div class="section-eyebrow">Core Platform</div>
+      <h2 class="section-title">Everything You Need to <span class="shimmer">Dominate</span></h2>
+      <p class="section-sub">From AI content tagging to real-time analytics — every tool a modern creator needs.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card reveal" data-delay="0.1">
+        <div class="feature-icon">🚀</div>
+        <h3>AI-Powered Publishing</h3>
+        <p>Publish to every platform simultaneously with AI-optimized content tags and smart scheduling.</p>
+      </div>
+      <div class="feature-card reveal" data-delay="0.2">
+        <div class="feature-icon">📊</div>
+        <h3>Conversion Analytics</h3>
+        <p>Real-time funnel tracking from impression to purchase with live WebSocket dashboards.</p>
+      </div>
+      <div class="feature-card reveal" data-delay="0.3">
+        <div class="feature-icon">🤝</div>
+        <h3>Brand Matchmaker</h3>
+        <p>DB-native scoring engine matches you with perfect brand sponsors algorithmically.</p>
+      </div>
+      <div class="feature-card reveal" data-delay="0.4">
+        <div class="feature-icon">✨</div>
+        <h3>AI Chat Assistant</h3>
+        <p>Context-aware AI that knows your metrics, content, and deals — always ready to help.</p>
+      </div>
+      <div class="feature-card reveal" data-delay="0.5">
+        <div class="feature-icon">🛡️</div>
+        <h3>Resilient Architecture</h3>
+        <p>Circuit breakers and rate limiters ensure your publishing never goes down.</p>
+      </div>
+      <div class="feature-card reveal" data-delay="0.6">
+        <div class="feature-icon">👑</div>
+        <h3>Creator-First Monetization</h3>
+        <p>Gated content funnels, Stripe integration, and automated sponsor discovery.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section id="how-it-works">
+  <div class="section-pad">
+    <div class="reveal" style="text-align:center;">
+      <div class="section-eyebrow" style="text-align:center;">How It Works</div>
+      <h2 class="section-title" style="text-align:center;">Three Steps to <span class="shimmer">Sovereignty</span></h2>
+      <p class="section-sub" style="margin:0 auto;">Stop chasing. Start attracting. Our AI handles the heavy lifting.</p>
+    </div>
+
+    <div class="steps-row">
+      <div class="step-card reveal" data-delay="0.1">
+        <div class="step-num">01</div>
+        <div class="step-icon">🎯</div>
+        <h3>AI Matches You</h3>
+        <p>Our neural network cross-references your audience demographics with active brand campaigns in real-time.</p>
+      </div>
+      <div class="step-card reveal" data-delay="0.25">
+        <div class="step-num">02</div>
+        <div class="step-icon">📋</div>
+        <h3>Manage Your Pipeline</h3>
+        <p>Drag-and-drop Kanban boards let you track every deal from pitch to payment effortlessly.</p>
+      </div>
+      <div class="step-card reveal" data-delay="0.4">
+        <div class="step-num">03</div>
+        <div class="step-icon">💰</div>
+        <h3>Close & Get Paid</h3>
+        <p>Automated contract generation and Stripe-powered instant payouts. Zero invoicing headaches.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dual Role Section -->
+<section id="roles">
+  <div class="section-pad">
+    <div class="reveal" style="text-align:center; margin-bottom:8px;">
+      <div class="section-eyebrow" style="text-align:center;">Built for Both Sides</div>
+      <h2 class="section-title" style="text-align:center;">One Platform. <span class="shimmer">Two Superpowers.</span></h2>
+      <p class="section-sub" style="margin:0 auto;">Whether you're a brand seeking creators or a creator seeking deals — Sovereign has you covered.</p>
+    </div>
+
+    <div class="dual-section reveal" data-delay="0.15">
+      <div class="dual-col brand">
+        <h3 style="color:var(--accent);">Brand Command Center</h3>
+        <p class="dual-sub">Discover, evaluate, and manage creator partnerships at scale.</p>
+        <ul>
+          <li><div class="check">✓</div><span>AI-powered creator discovery with audience overlap scoring and sentiment analysis.</span></li>
+          <li><div class="check">✓</div><span>Bloomberg-style campaign dashboards with real-time ROI tracking.</span></li>
+          <li><div class="check">✓</div><span>Automated pitch deck generation tailored to each creator's audience.</span></li>
+        </ul>
+      </div>
+      <div class="dual-col creator">
+        <h3 style="color:var(--blue);">Creator Toolkit</h3>
+        <p class="dual-sub">Monetize your influence with AI-driven tools built for growth.</p>
+        <ul>
+          <li><div class="check">✓</div><span>Cross-platform publishing with AI-generated hashtags and optimal timing.</span></li>
+          <li><div class="check">✓</div><span>Conversion funnel analytics from impression to purchase, real-time.</span></li>
+          <li><div class="check">✓</div><span>Gated content monetization with Stripe and subscriber management.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Final CTA -->
+<section class="cta-section" id="pricing">
+  <div class="cta-glow"></div>
+  <div class="reveal">
+    <h2>Ready to be <span class="shimmer">Sovereign</span>?</h2>
+    <p>Join 50,000+ creators who stopped waiting for opportunities — and started building empires.</p>
+    <button class="btn-cta-big">Start Your Free Trial →</button>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-logo">
+    <div class="footer-logo-icon">S</div>
+    <span>Sovereign</span>
+  </div>
+  <div class="footer-links">
+    <a href="#">Privacy</a>
+    <a href="#">Terms</a>
+    <a href="#">Docs</a>
+    <a href="#">Status</a>
+  </div>
+  <div class="footer-copy">© 2026 Sovereign OS. All rights reserved.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

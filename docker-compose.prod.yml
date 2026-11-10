@@ -1,0 +1,123 @@
+# ═══════════════════════════════════════════════════════════════
+# Project Sovereign — Unified Docker Compose (Production)
+# Includes: PostgreSQL, RabbitMQ, Redis, Backend, Frontend
+# ═══════════════════════════════════════════════════════════════
+
+version: "3.9"
+
+services:
+  # ═══════════ PostgreSQL ═══════════
+  postgres:
+    image: postgres:16-alpine
+    container_name: sovereign-postgres
+    environment:
+      POSTGRES_DB: sovereign_db
+      POSTGRES_USER: sovereign
+      POSTGRES_PASSWORD: sovereign
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - sovereign-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U sovereign -d sovereign_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ═══════════ RabbitMQ ═══════════
+  rabbitmq:
+    image: rabbitmq:3.13-management-alpine
+    container_name: sovereign-rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    command: >
+      sh -c "rabbitmq-plugins enable --offline rabbitmq_stomp && rabbitmq-server"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+      - "61613:61613"
+    networks:
+      - sovereign-network
+    healthcheck:
+      test: ["CMD", "rabbitmq-diagnostics", "-q", "check_running"]
+      interval: 10s
+      timeout: 10s
+      retries: 5
+
+  # ═══════════ Redis ═══════════
+  redis:
+    image: redis:7-alpine
+    container_name: sovereign-redis
+    ports:
+      - "6379:6379"
+    networks:
+      - sovereign-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  # ═══════════ Backend (Spring Boot) ═══════════
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: sovereign-backend
+    environment:
+      # Database
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/sovereign_db
+      SPRING_DATASOURCE_USERNAME: sovereign
+      SPRING_DATASOURCE_PASSWORD: sovereign
+      # RabbitMQ
+      SPRING_RABBITMQ_HOST: rabbitmq
+      SPRING_RABBITMQ_PORT: 5672
+      SPRING_RABBITMQ_USERNAME: guest
+      SPRING_RABBITMQ_PASSWORD: guest
+      # Redis
+      SPRING_DATA_REDIS_HOST: redis
+      SPRING_DATA_REDIS_PORT: 6379
+      # JWT
+      APP_JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET to a strong random value}
+      APP_JWT_EXPIRATION_MS: 86400000
+      # OpenAI
+      APP_OPENAI_API_KEY: ${OPENAI_API_KEY:-sk-placeholder}
+      APP_OPENAI_MODEL: gpt-4o-mini
+      APP_OPENAI_MAX_TOKENS: 500
+      APP_OPENAI_TEMPERATURE: 0.3
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - sovereign-network
+    restart: unless-stopped
+
+  # ═══════════ Frontend (Nginx + React) ═══════════
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: sovereign-frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - sovereign-network
+    restart: unless-stopped
+
+networks:
+  sovereign-network:
+    driver: bridge
+
+volumes:
+  pgdata:

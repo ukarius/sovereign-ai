@@ -1,0 +1,5 @@
+# Default runtime policy. Tool capabilities are disabled until explicitly registered.
+network_access: false
+shell_access: false
+filesystem_write_access: false
+require_tool_allowlist: true
